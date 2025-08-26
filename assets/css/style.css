@@ -49,7 +49,7 @@ nav a {
 
 /* Hero Section */
 .hero {
-  background: url('/assets/img/bg.png') no-repeat center center/cover;
+  background: url('../assets/img/bg.png') no-repeat center center/cover;
   height: 300px;
   position: relative;
 }
@@ -301,4 +301,5 @@ nav a {
     flex-direction: row;
     align-items: center;
   }
+
 }

@@ -182,14 +182,14 @@
     <!-- script src="./dist/js/vendor.js"></script>
     <script src="./dist/js/adminx.vanilla.js"></script-->
     <script>
-        fetch('/partials/navbar.html')
+        fetch('../partials/navbar.html')
             .then(res => res.text())
             .then(html => {
                 document.getElementById('navbar-container').innerHTML = html;
                 if (window.feather) feather.replace(); // ← ini baru benar
             });
 
-        fetch('/partials/sidebar.html')
+        fetch('../partials/sidebar.html')
             .then(res => res.text())
             .then(html => {
                 document.getElementById('sidebar-container').innerHTML = html;
@@ -199,5 +199,6 @@
     <script src="https://unpkg.com/feather-icons"></script>
 
 </body>
+
 
 </html>

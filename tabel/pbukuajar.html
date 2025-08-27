@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>AdminX - Data Tables</title>
+    <title>Data Pendaftar | Program Menulis Buku Ajar</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -13,8 +13,8 @@
     <div class="adminx-container">
         <!-- Header -->
         <nav class="navbar navbar-expand justify-content-between fixed-top">
-            <a class="navbar-brand mb-0 h1 d-none d-md-block" href="index.html">
-                <img src="assets/img/logo.png" class="navbar-brand-image d-inline-block align-top mr-2" alt="">
+            <a class="navbar-brand mb-0 h1 d-none d-md-block" href="/dashboard.html">
+                <img src="/assets/img/logo.png" class="navbar-brand-image d-inline-block align-top mr-2" alt="">
             </a>
 
             <form class="form-inline form-quicksearch d-none d-md-block mx-auto">
@@ -103,7 +103,7 @@
         <div class="adminx-sidebar expand-hover push">
             <ul class="sidebar-nav">
                 <li class="sidebar-nav-item">
-                    <a href="index.html" class="sidebar-nav-link active">
+                    <a href="/dashboard.html" class="sidebar-nav-link active">
                         <span class="sidebar-nav-icon">
                             <i data-feather="home"></i>
                         </span>
@@ -117,7 +117,7 @@
                 </li>
 
                 <li class="sidebar-nav-item">
-                    <a href="/event/event.html" class="sidebar-nav-link">
+                    <a href="/event.html" class="sidebar-nav-link">
                         <span class="sidebar-nav-icon">
                             <i data-feather="layout"></i>
                         </span>
@@ -171,7 +171,7 @@
 
                     <ul class="sidebar-sub-nav collapse" id="navTables">
                         <li class="sidebar-nav-item">
-                            <a href="tabel/pbukuajar.html" class="sidebar-nav-link">
+                            <a href="/tabel/pbukuajar.html" class="sidebar-nav-link">
                                 <!-- <span class="sidebar-nav-abbr">
                   Re
                 </span> -->
@@ -182,7 +182,7 @@
                         </li>
 
                         <li class="sidebar-nav-item">
-                            <a href="tabel/pbukuchapter.html" class="sidebar-nav-link">
+                            <a href="/tabel/pbukuchapter.html" class="sidebar-nav-link">
                                 <!-- <span class="sidebar-nav-abbr">
                   Da
                 </span> -->
@@ -192,7 +192,7 @@
                             </a>
                         </li>
                         <li class="sidebar-nav-item">
-                            <a href="tabel/pbukureferensi.html" class="sidebar-nav-link">
+                            <a href="/tabel/pbukureferensi.html" class="sidebar-nav-link">
                                 <!-- <span class="sidebar-nav-abbr">
                   Da
                 </span> -->
@@ -202,7 +202,7 @@
                             </a>
                         </li>
                         <li class="sidebar-nav-item">
-                            <a href="tabel/pbukumonograf.html" class="sidebar-nav-link">
+                            <a href="/tabel/pbukumonograf.html" class="sidebar-nav-link">
                                 <!-- <span class="sidebar-nav-abbr">
                   Da
                 </span> -->
@@ -420,23 +420,23 @@
                     <nav aria-label="breadcrumb" role="navigation">
                         <ol class="breadcrumb adminx-page-breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Tables</a></li>
-                            <li class="breadcrumb-item active  aria-current=" page">Regular Tables</li>
+                            <li class="breadcrumb-item"><a href="#">Tabel</a></li>
+                            <li class="breadcrumb-item active  aria-current=" page">Pendaftar Menulis Buku Ajar</li>
                         </ol>
                     </nav>
 
                     <div class="pb-3">
-                        <h1>Data Tables</h1>
+                        <h1>Data Tabel Pendaftar Program Menulis Buku Ajar</h1>
                     </div>
 
                     <div class="row">
-                        <div class="col">
+                        <!-- <div class="col">
                             <div class="alert alert-warning" role="alert">
                                 <strong>DataTables are a jQuery-only plugin</strong><br />
                                 If you know a similar vanilla JS library that you want to see supported, feel free to
                                 open an issue on GitHub.
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="row">
                         <div class="col">
@@ -445,15 +445,11 @@
                                     <table class="table table-actions table-striped table-hover mb-0" data-table>
                                         <thead>
                                             <tr>
-                                                <th scope="col">
-                                                    <label class="custom-control custom-checkbox m-0 p-0">
-                                                        <input type="checkbox"
-                                                            class="custom-control-input table-select-all">
-                                                        <span class="custom-control-indicator"></span>
-                                                    </label>
-                                                </th>
+                                                <th scope="col">No</th>
                                                 <th scope="col">Nama</th>
-                                                <th scope="col">Asal</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">Alamat</th>
+                                                <th scope="col">Judul Buku</th>
                                                 <th scope="col">Bukti Pembayaran</th>
                                                 <th scope="col">Actions</th>
                                             </tr>
@@ -482,19 +478,93 @@
     <!-- If you prefer vanilla JS these are the only required scripts -->
     <!-- script src="./dist/js/vendor.js"></script>
     <script src="./dist/js/adminx.vanilla.js"></script-->
+    <!-- Tambahkan Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.5/dist/umd/supabase.min.js"></script>
+
+    <script>
+        const client = supabase.createClient(
+            "https://hjbbtopfawoknagnjned.supabase.co",
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhqYmJ0b3BmYXdva25hZ25qbmVkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTYxNzk1NzEsImV4cCI6MjA3MTc1NTU3MX0.NXtNptDjskTguSKMtLVU5p-BXJtERsjqtAL2yf2Mtfg"
+        );
+
+        async function loadData() {
+            const { data, error } = await client
+                .from("pendaftarbukuajar")
+                .select("*")
+                .order("id", { ascending: true });
+
+            if (error) {
+                console.error("Gagal mengambil data:", error.message);
+                return;
+            }
+
+            const tbody = document.querySelector("table tbody");
+            tbody.innerHTML = ""; // kosongkan isi dulu
+
+            data.forEach((row, index) => {
+                const tr = document.createElement("tr");
+
+                tr.innerHTML = `
+        <td>${index + 1}</td>
+        <td>${row.nama}</td>
+        <td>
+          <strong>${row.email}
+        </td>
+        <td>${row.alamat}</td>
+        <td>${row.judul_buku}</td>
+        <td>
+            ${row.buktiPembayaran
+                        ? row.buktiPembayaran.match(/\.(jpg|jpeg|png)$/i)
+                            ? `
+        <a href="${row.buktiPembayaran}" target="_blank">
+          <img src="${row.buktiPembayaran}" 
+               alt="Preview" 
+               style="max-width:80px; max-height:80px; border-radius:4px; cursor:pointer;"/>
+        </a>
+      `
+                            : row.buktiPembayaran.match(/\.pdf$/i)
+                                ? `
+          <a href="${row.buktiPembayaran}" target="_blank">
+            <iframe src="${row.buktiPembayaran}" 
+                    width="150" height="100" 
+                    style="border:1px solid #ddd; border-radius:4px;"></iframe>
+          </a>
+        `
+                                : `
+          <a href="${row.buktiPembayaran}" 
+             target="_blank" 
+             class="btn btn-sm btn-primary">
+             Lihat File
+          </a>
+        `
+                        : `<span class="badge bg-secondary">Tidak ada</span>`
+                    }
+</td>
+        <td>
+          <button class="btn btn-sm btn-danger">Hapus</button>
+        </td>
+      `;
+
+                tbody.appendChild(tr);
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", loadData);
+    </script>
+
     <script>
         fetch('../partials/navbar.html')
             .then(res => res.text())
             .then(html => {
                 document.getElementById('navbar-container').innerHTML = html;
-                if (window.feather) feather.replace(); // ← ini baru benar
+                if (window.feather) feather.replace();
             });
 
         fetch('../partials/sidebar.html')
             .then(res => res.text())
             .then(html => {
                 document.getElementById('sidebar-container').innerHTML = html;
-                if (window.feather) feather.replace(); // ← ini juga
+                if (window.feather) feather.replace();
             });
 
 
